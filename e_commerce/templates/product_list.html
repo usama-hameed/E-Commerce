@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Lists</title>
+</head>
+<body>
+    
+    <p>Select Price</p>
+    <form action="" method="POST">
+        {%  csrf_token %}
+    <input type="number" name="price1">
+    &nbsp; - &nbsp;
+    <input type="number" name="price2">
+    <input type="submit" value="Submit">
+    </form>
+
+    <br><br><br><br>
+    {% for product in products %}
+
+    <b>product Name: </b>
+    {{product.name}}
+    <br>
+    <b>product Price: </b>
+    {{product.price}}
+    <br><br>  
+    <button type="submit"> <a href="{% url 'add_to_cart' id=product.product_id %}">Add To Cart</a> </button>
+    <br><br><br><br>
+    {% endfor %}
+</body>
+</html>

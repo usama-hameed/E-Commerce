@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <form action="" method="POST" >
+        {% csrf_token %}
+        {{form.as_p}}
+     <button type="submit">Signup</button>
+
+    </form>
+    <div>
+        {% for message in messages %}
+        <br>
+        <h2  style="padding-left: 500px;" >{{message}}</h2>
+        {% endfor %}
+    </div>
+</body>
+</html>

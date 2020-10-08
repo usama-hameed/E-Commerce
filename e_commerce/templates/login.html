@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <form action="" method="POST" >
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input type="text" name="username" >
+        <label for="password">Password</label>
+        <input type="password" name="password" >
+
+     <button type="submit">Login</button>
+
+    </form>
+    <a href="{% url 'signup' %}">Signup</a> 
+    <a href="{% url 'product_list' %}">Buy a Product</a> 
+    <div>
+        {% for message in messages %}
+        <br>
+        <h2  style="padding-left: 500px;" >{{message}}</h2>
+        {% endfor %}
+    </div>
+
+    
+</body>
+</html>

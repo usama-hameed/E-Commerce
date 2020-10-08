@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<body>
+    <button type="submit"><a href="{% url 'add_product' %}">Add Product</a></button>
+
+
+    <br><br><br><br><br><br>
+
+    
+
+    {% for product in products %}
+
+    <b>Product Name: </b>
+    {{product.name}}
+    <br>
+    <b>Product Price: </b>
+    {{product.price}}
+    <br><br>  
+    <button type="submit"> <a href="{% url 'update_product' id=product.product_id %}">Update Product</a> </button>
+    <button type="submit"> <a href="{% url 'delete_product' id=product.product_id %}">Delete Product</a> </button>
+    <br><br><br><br><br>
+    {% empty %}
+    <p>No Products</p>
+
+    {% endfor %}
+</body>
+</html>
